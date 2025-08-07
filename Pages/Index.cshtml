@@ -1,0 +1,67 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Favorite Song</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header#page-header {
+            font-size: 2.5em;
+            padding: 20px;
+            background-color: #222;
+            border-bottom: 3px solid #444;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header id="page-header">🎵 My Favorite Song 🎵</header>
+
+    <main>
+        <section class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/kXYiU_JCYtU"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+            </iframe>
+        </section>
+    </main>
+
+    <script>
+        let header = document.getElementById("page-header");
+        let hue = 0;
+
+        function animateHeader() {
+            hue = (hue + 1) % 360;
+            header.style.color = `hsl(${hue}, 100%, 70%)`;
+            requestAnimationFrame(animateHeader);
+        }
+
+        animateHeader();
+
+
+    </script>
+</body>
+</html>
